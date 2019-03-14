@@ -1,0 +1,158 @@
+/*背景图片*/
+body {
+    background: white url("http://coding.imweb.io/img/project/blog/bg.jpg") no-repeat right bottom fixed;
+    /*新增加了fixed*/
+}
+
+/*整体*/
+.page-detail {
+    width: 650px;
+    margin-left: 50px;
+}
+
+/*标题*/
+.page-tt {
+    font-size: 36px;
+    line-height: 2;
+    margin: 30px 0;
+    color: #188eee;
+}
+
+/*分割线*/
+.article h2 {
+    font-size: 24px;
+    line-height: 2;
+    margin: 20px 0;
+    /*background: linear-gradient(to right, #188eee 0, #188eee 15%, #999 15%, #999 100%) no-repeat 0 2.7rem /100% 1px;*/
+    background:linear-gradient(to right, #188eee 4em,  #f5f5f5 4em) no-repeat bottom /100% 1px ;
+
+    /****
+    *   注意：1.   no-repeat这个属性很重要，不能少
+    *        2.   linear-gradient(to right, #188eee 4em,  #f5f5f5 4em)    -->  直接设置渐变节点位置就好，不需要设置首尾
+    *        3.   background-position:bottom;    -->  有专门的值去设置位置，不需要目测
+    **/
+}
+
+/*   list-style-position: inside;   -->可以让默认的序号跑到内容里面    */
+/***********************************************************************************************************/
+.article ol {
+    list-style-type: none;
+    counter-reset: section 0; /*  section这个值是自己定义的要和下面的两个同步     0为递增（减）之前的值*/
+}
+
+.article ol li {
+    counter-increment: section 1; /* 每次递增 1 */
+}
+
+.article ol li:before {
+    content: counter(section, decimal-leading-zero) "/ "; /* decimal-leading-zero是序号的样式（123 abc之类的）斜线是序号后面加的内容 */
+
+    color: #999;
+    font-family: monospace;
+    margin-right: 10px;
+}
+
+/***********************************************************************************************************/
+.article p {
+    font-size: 16px;
+    line-height: 1.8;
+    text-indent: 2em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.article img {
+    border: 1px solid #999;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.article .ps {
+    color: gray; /* #f5f5f5颜色太浅，这里用了个gray */
+}
+
+.article .ps a:hover {
+    color: #188eee;
+}
+
+/*底部评论区整体*/
+.section-comment {
+    margin-top: 50px;
+    border-top: 3px solid #188eee;
+    padding-top: 30px;
+}
+
+/*输入框*/
+.f-textarea {
+    border-color: #dbdbdb;
+    padding: 5px;
+    border-radius: 5px;
+    /*下面是自己添加的样式*/
+    width: 100%;
+    height: 100px;
+    resize: none; /*禁止拖动*/
+}
+
+.f-textarea:hover {
+    border-color: #CCC;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*提交按钮*/
+.f-btn {
+    background-color: #188eee;
+    color: white;
+    border-radius: 5px;
+    /*下面是自己添加的样式*/
+    border: 0;   /*让border为0来替代默认的 2px*/
+    padding: 2px 5px;
+    margin: 10px 0 20px 0;
+}
+
+.f-btn:hover {
+    background-color: #147de2;
+}
+
+/*评论区显示列表*/
+.comment-item {
+    width: 100%;
+    height: 80px;
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+}
+
+.comment-item:hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*非评论区字号*/
+.item-time, .item-user, .ft-oper {
+    padding: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/*评论内容*/
+.comment-bd p {
+    font-size: 14px;
+    padding: 5px;
+}
+
+/*时间颜色*/
+.item-time {
+    color: #666;
+}
+
+/*点赞回复*/
+.ft-oper {
+    float: right;
+}
+
+/*名字点赞回复*/
+.item-user, .ft-oper {
+    color: #188eee;
+}
+
+.item-user:hover,.ft-oper:hover{  /*注意:要写两个hover*/
+    color: #147de2;
+}
